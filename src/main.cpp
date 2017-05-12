@@ -4,6 +4,20 @@
 #include "PID.h"
 #include <math.h>
 
+/**
+  Eeach part of PID controller has the following meaning and purpose:
+  P - proportional term; responds in proportion to cross track error. 
+      It defines how fast we want to get to the desired trajectory from our current position.
+      Nevertheless using just a P term causes a vehicle to oscilate around trajectory.
+  I - integral term; it is proportional to an error magnitude and duration.
+      The purpose of I term is to account for a systematic bias of the controlled object.
+  D - derivative term; proportional to a first order derivative of error over time.
+      Using D term we predict the system's behaviour which allows us to stabilize it and speeds up settling.
+      In our case it accounts for an oscilation effect caused by applying P term.    
+
+      I've chosen parameters of the controller manually.  
+**/
+
 // for convenience
 using json = nlohmann::json;
 
