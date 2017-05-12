@@ -1,5 +1,7 @@
 #ifndef PID_H
 #define PID_H
+#include <iostream>
+#include <ctime>
 
 class PID {
 public:
@@ -9,6 +11,8 @@ public:
   double p_error;
   double i_error;
   double d_error;
+  double previous_cte;
+  int previous_timestamp;
 
   /*
   * Coefficients
